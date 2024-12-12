@@ -5,6 +5,7 @@ const app = express();
 //You can pass mutiple route handlers as an array also 
 // app.get("/user", rh1, rh2, [rh3, rh4, rh5],...)
 
+/*
 app.get("/user",(req, res, next)=>{
     console.log("Routing Handle 1")
     next(); //next will redirect to the next routing handler function and handle it first then execute the next
@@ -21,6 +22,17 @@ app.get("/user",(req, res, next)=>{
     console.log("Routing Handle 4")
     res.send("Response 4");
     next();
+})
+*/
+
+app.use("/user",(req, res, next)=>{
+    console.log("Routing Handle 1");
+    next();
+})
+
+app.use("/user", (req, res, next)=>{
+    console.log("Routing handle 2");
+    res.send("1st Response!!!!")
 })
 
 app.listen(3000, ()=>{
